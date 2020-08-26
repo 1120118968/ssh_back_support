@@ -1,6 +1,7 @@
 package org.vo;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "admin_info", schema = "onlineschool_v4", catalog = "")
@@ -47,8 +48,8 @@ public class AdminInfo {
         AdminInfo adminInfo = (AdminInfo) o;
 
         if (id != adminInfo.id) return false;
-        if (adminName != null ? !adminName.equals(adminInfo.adminName) : adminInfo.adminName != null) return false;
-        if (adminPassword != null ? !adminPassword.equals(adminInfo.adminPassword) : adminInfo.adminPassword != null)
+        if (!Objects.equals(adminName, adminInfo.adminName)) return false;
+        if (!Objects.equals(adminPassword, adminInfo.adminPassword))
             return false;
 
         return true;
